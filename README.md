@@ -51,7 +51,12 @@ provided by the <a href="https://ohif.org/">Open Health Imaging Foundation (OHIF
       yarn config set workspaces-experimental true
       yarn install
      ```
-3. Start the development server
+3. Link the custom extensions and modes
+   ```bash
+      yarn run cli link-extension codingtask/download-image-extension
+      yarn run cli link-mode codingtask/download-image-mode
+    ```
+4. Start the development server
     ```bash
    yarn run dev
    ```
