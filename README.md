@@ -65,7 +65,7 @@ To activate the mode I have created:
 6. Test the end result by opening the downloaded zip file
 
 ## Process
-For this coding challenge, I begun by reviewing the attached relevant OHIF documentation, which was provided by Seamus. I looked specifically at the Extension and Mode documentation to help guide me and help me understand how to create a new extension and mode. 
+For this coding challenge, I begun by reviewing the relevant OHIF documentation. I looked specifically at the Extension and Mode documentation to help guide me and help me understand how to create a new extension and mode. 
 
 I followed these steps:
 1. **Requirement Analysis**: I made sure that I understood the requirements of the task, which was to create a new mode and extensions that allows users to download the current image and its relevant key metadata (Patient Name and Study Date) in a zip file.
