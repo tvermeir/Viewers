@@ -550,6 +550,14 @@ export default function getToolbarModule({ servicesManager, extensionManager }: 
         };
       },
     },
+    {
+      name: 'evaluate.cornerstone.hasSegmentation',
+      evaluate: ({ viewportId }) => {
+        const hasSegmentation =
+          segmentationService.getSegmentationRepresentations(viewportId).length > 0;
+        return { value: hasSegmentation };
+      },
+    },
   ];
 }
 

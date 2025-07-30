@@ -35,12 +35,15 @@ export default {
             const displaySet = displaySetService.getDisplaySetByUID(displaySetInstanceUID);
 
             // Used to access metadata (e.g., PatientName, StudyDate) for the active image.
-            const patientName =
+            const rawPatientName =
               displaySet?.instances?.[0]?.PatientName?.[0]?.Alphabetic || 'Unknown';
             const rawDate = displaySet?.instances?.[0]?.StudyDate || 'Unknown';
+            // Was getting the PatientName in the format "Doe^John" and needed to convert it to "John, Doe".
+            const patientName = rawPatientName.replace('^', ', ');
 
-            const studyDate = rawDate
-              ? `${rawDate.slice(0, 4)}/${rawDate.slice(4, 6)}/${rawDate.slice(6, 8)}`
+
+            const studyDate = rawDate && rawDate.length === 8
+              ? `${rawDate.slice(6, 8)}/${rawDate.slice(4, 6)}/${rawDate.slice(0, 4)}`
               : 'Unknown';
 
             // Converts the metadata into a JSON object and prepares it for zipping.
