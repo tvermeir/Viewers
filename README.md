@@ -36,8 +36,53 @@ provided by the <a href="https://ohif.org/">Open Health Imaging Foundation (OHIF
 <!-- [![codecov][codecov-image]][codecov-url] -->
 <!-- [![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors) -->
 <!-- prettier-ignore-end -->
+# Coding Challenge
+### Todd Vermeir- todd.vermeir@gmail.com
+## Instructions
+###  Install & Run 
+1. Clone the repository
+   ```bash
+    git clone https://github.com/tvermeir/Viewers.git
+    cd Viewers
+    ```
+2. Install dependencies
+    ```bash
+      # Install Yarn if you haven't already
+      yarn config set workspaces-experimental true
+      yarn install
+     ```
+3. Start the development server
+    ```bash
+   yarn run dev
+   ```
+### Activating Mode Instructions
+To activate the mode I have created:
+1. [Click on a study](codingtask/docs/screenshots/SelectingStudy.png)
+2. [Head to the template mode](codingtask/docs/screenshots/SelectTemplateMode.png)
+3. Open the image you want to download
+4. [Click the "Download Image" button in the toolbar](codingtask/docs/screenshots/SelectDownloadButton.png)
+5. The image will be downloaded to your computer
+6. Test the end result by opening the downloaded zip file
+
+## Process
+For this coding challenge, I begun by reviewing the attached relevant OHIF documentation, which was provided by Seamus. I looked specifically at the Extension and Mode documentation to help guide me and help me understand how to create a new extension and mode. 
+
+I followed these steps:
+1. **Requirement Analysis**: I made sure that I understood the requirements of the task, which was to create a new mode and extensions that allows users to download the current image and its relevant key metadata (Patient Name and Study Date) in a zip file.
+2. **Environment Setup**: I set up the development environment by forking and then cloning the OHIF Viewers repository and installing the necessary dependencies using Yarn.
+3. **Creating the Extension**: I created a new extension called download-image-extension in a separate directory to where the main ones are stored (OHIF recommends this). The extension contains the logic for downloading the image and metadata. I used the OHIF documentation to understand how to create an extension and how to use the Cornerstone library to access the image data and the patient metadata.
+4. **Creating the Mode**:  I created a new mode called download-image-mode that uses the download-image-extension. This mode is activated when the user opens the template mode and allows the user to download the image and metadata.
+5. **Testing**: I manually tested the extension and mode by opening a study, activating the mode, and downloading an image. I verified that the downloaded zip file contains the image and metadata in the correct format.
+6. **Documentation**: I documented the process and the code to make it easier for others to understand how to use the extension and mode. I also created screenshots to illustrate the steps to activate the mode and download the image.
+
+## Challenges
+The main challenges I faced included:
+1. Figuring out how to create a new extension and mode, and how they interact with each other and the OHIF Viewer. I overcame this by looking at existing extensions and modes in the OHIF Viewers repository, by reading the OHIF documentation on extensions and modes and querying LLMs like Google Gemini to help me understand the concepts better. 
+2. I encountered a challenge when trying to add the button onto the existing toolbar. Initially the button was not appearing, and no errors were being thrown. I decided to remove the existing toolbar buttons from the mode and just add my button to the toolbar. This failed, but an error appeared. From there I was able to fix my button, test that it showed up by itself and then added it to the existing toolbar.
 
 
+## Assumptions
+I assumed that the mode only had to be added to the template mode, and that it would not be necessary to add it to other modes. 
 |     |  | |
 | :-: | :---  | :--- |
 | <img src="https://github.com/OHIF/Viewers/blob/master/platform/docs/docs/assets/img/demo-measurements.webp?raw=true" alt="Measurement tracking" width="350"/> | Measurement Tracking | [Demo](https://viewer.ohif.org/viewer?StudyInstanceUIDs=1.3.6.1.4.1.25403.345050719074.3824.20170125095438.5) |
